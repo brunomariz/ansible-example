@@ -68,7 +68,7 @@ The playbook makes sure a user is present on ansible-host1. View before state on
 getent passwd tuser
 ```
 
-Run the playbook on the controller:
+Run the playbook on the controller. `-K` will prompt you for the managed host's sudo password. If the generated ssh key in the prerequisites has a password, use `-kK` to enter the ssh key's password aswell.
 
 ```
 ansible-playbook playbook.yaml -K
