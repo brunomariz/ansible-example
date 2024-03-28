@@ -1,1 +1,78 @@
 # ansible-example
+
+## Prerequisites
+
+In this example, a proxmox server with 4 VMs was setup, one for the controller, and 3 for the managed hosts. However, only one host is referenced in the playbook, so 2 machines will suffice for this example.
+
+Before running the ansible commands, `/etc/hosts` file was edited to contain ansible-host1's IP address, and an ssh key pair was generated on the controller and the public key was copied to the host with ssh-copy-id ansible-host1. Of course, both machines were also configured with static IPs.
+
+Ansible was installed on the controller node with `apt install ansible`. 
+
+## Playbook example
+
+Clone this repo into the controller node
+
+```
+git clone https://github.com/brunomariz/ansible-example.git
+cd ansible-example
+```
+
+View inventory information
+
+```
+ansible-inventory --graph
+@all:
+  |--@ungrouped:
+  |--@myhosts:
+  |  |--ansible-host1
+  |  |--ansible-host2
+  |  |--ansible-host3
+```
+
+The playbook makes sure a user is present on ansible-host1. View before state on ansible-host1:
+
+```
+getent passwd tuser
+```
+
+Run the playbook on the controller:
+
+```
+ansible-playbook playbook.yaml -K
+BECOME password:
+
+PLAY [Configure test user] *****************************************************************************
+
+TASK [Gathering Facts] *********************************************************************************
+Thursday 28 March 2024  14:04:16 +0000 (0:00:00.015)       0:00:00.016 ********
+Thursday 28 March 2024  14:04:16 +0000 (0:00:00.014)       0:00:00.014 ********
+ok: [ansible-host1]
+
+TASK [Test user exists] ********************************************************************************
+Thursday 28 March 2024  14:04:18 +0000 (0:00:01.955)       0:00:01.971 ********
+Thursday 28 March 2024  14:04:18 +0000 (0:00:01.955)       0:00:01.970 ********
+changed: [ansible-host1]
+
+PLAY RECAP *********************************************************************************************
+ansible-host1              : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+Playbook run took 0 days, 0 hours, 0 minutes, 3 seconds
+Thursday 28 March 2024  14:04:19 +0000 (0:00:01.502)       0:00:03.474 ********
+===============================================================================
+Gathering Facts --------------------------------------------------------------------------------- 1.96s
+Test user exists -------------------------------------------------------------------------------- 1.50s
+Thursday 28 March 2024  14:04:19 +0000 (0:00:01.503)       0:00:03.473 ********
+===============================================================================
+gather_facts ------------------------------------------------------------ 1.96s
+ansible.builtin.user ---------------------------------------------------- 1.50s
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+total ------------------------------------------------------------------- 3.46s
+```
+
+View after state on ansible-host1:
+
+```
+getent passwd tuser
+tuser:x:9999:9999::/home/tuser:/bin/sh
+```
+
