@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-For this example, a Proxmox server with 4 Ubuntu Server 22.04 VMs was setup, one for the controller, and 3 for the managed hosts. However, only one host is referenced in the playbook, so 2 machines will suffice for this example.
+For this example, a Proxmox server with 4 Ubuntu Server 22.04 VMs were setup, one for the controller, and 3 for the managed hosts. However, only one host is referenced in the playbook, so 2 machines will suffice for this example.
 
 Before running the ansible commands, `/etc/hosts` file was edited to contain ansible-host1's IP address, and an ssh key pair was generated on the controller and the public key was copied to the host with ssh-copy-id ansible-host1. Of course, both machines were also configured with static IPs.
 
