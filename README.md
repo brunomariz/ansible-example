@@ -6,6 +6,24 @@ In this example, a proxmox server with 4 VMs was setup, one for the controller, 
 
 Before running the ansible commands, `/etc/hosts` file was edited to contain ansible-host1's IP address, and an ssh key pair was generated on the controller and the public key was copied to the host with ssh-copy-id ansible-host1. Of course, both machines were also configured with static IPs.
 
+Controller node's `/etc/hosts`:
+
+```
+127.0.0.1 localhost
+127.0.1.1 ubutnu-server-base
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+192.168.0.2 ansible-host1
+192.168.0.3 ansible-host2
+192.168.0.4 ansible-host3
+```
+
 Ansible was installed on the controller node with `apt install ansible`. 
 
 ## Playbook example
