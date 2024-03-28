@@ -35,6 +35,21 @@ git clone https://github.com/brunomariz/ansible-example.git
 cd ansible-example
 ```
 
+View ansible version and active config file
+
+```
+ansible --version
+ansible [core 2.16.5]
+  config file = /home/maintenance/ansible-example/ansible.cfg
+  configured module search path = ['/home/maintenance/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/maintenance/ansible-example/collections
+  executable location = /usr/bin/ansible
+  python version = 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0] (/usr/bin/python3)
+  jinja version = 3.0.3
+  libyaml = True
+```
+
 View inventory information
 
 ```
