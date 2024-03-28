@@ -1,0 +1,9 @@
+- name: Configure test user
+  hosts: ansible-host1
+  become: true
+  tasks:
+    - name: Test user exists
+      ansible.builtin.user:
+        name: tuser
+        uid: 9999
+        state: present
