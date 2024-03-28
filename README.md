@@ -1,5 +1,9 @@
 # ansible-example
 
+![red hat logo](https://github.com/brunomariz/ansible-example/assets/48870924/037c1510-68ed-45a8-a1e2-d890a0b0648b)
+
+Source: [Red Hat's Fundamentals of Ansible Coursera course](https://www.coursera.org/learn/fundamentals-of-ansible)
+
 ## Prerequisites
 
 For this example, a Proxmox server with 4 Ubuntu Server 22.04 VMs were setup, one for the controller, and 3 for the managed hosts. However, only one host is referenced in the playbook, so 2 machines will suffice for this example.
