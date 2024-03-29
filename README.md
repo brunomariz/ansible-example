@@ -2,7 +2,7 @@
 
 ![red hat logo](https://github.com/brunomariz/ansible-example/assets/48870924/037c1510-68ed-45a8-a1e2-d890a0b0648b)
 
-Source: [Red Hat's Fundamentals of Ansible Coursera course](https://www.coursera.org/learn/fundamentals-of-ansible)
+Source: [Red Hat's Fundamentals of Ansible on Coursera](https://www.coursera.org/learn/fundamentals-of-ansible)
 
 ## Prerequisites
 
