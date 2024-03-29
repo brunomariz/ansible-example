@@ -56,7 +56,7 @@ ansible [core 2.16.5]
   libyaml = True
 ```
 
-View inventory information
+View inventory information (present on `my_inventory/`)
 
 ```
 ansible-inventory --graph
