@@ -28,7 +28,9 @@ ff02::2 ip6-allrouters
 192.168.0.4 ansible-host3
 ```
 
-Ansible was installed on the controller node with `apt install ansible`. 
+Ansible was installed on the controller node with 
+
+```apt install ansible```
 
 ## Playbook example
 
