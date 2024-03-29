@@ -32,6 +32,8 @@ Ansible was installed on the controller node with
 
 ```apt install ansible```
 
+Also, the managed hosts were configured with a `maintenance` user. If your hosts have a different user, edit the `remote_user` variable on `ansible.cfg`.
+
 ## Playbook example
 
 Clone this repo into the controller node
